@@ -15,7 +15,18 @@
 
 ## Links
 
+- [Simple ATtiny USI UART](http://www.technoblogy.com/show?RPY)
+- [Simple Serial Communications With AVR libc](https://appelsiini.net/2011/simple-usart-with-avr-libc/)
+- [Four PWM Outputs from the ATtiny85](http://www.technoblogy.com/show?LE0=)
+
 ## Contributing
 
 ## Authors
+
+
+## TODO
+
+- [ ] Check howto do basic HC-05 controlled LED.
+- [ ] Check ISP wiring, does it need protective/isolating R's?
+- [ ] Control Hub based on Nerves for multiple lamps/single control point.
 
