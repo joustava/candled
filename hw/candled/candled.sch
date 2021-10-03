@@ -184,34 +184,30 @@ Wire Wire Line
 	3600 2450 3600 2750
 Wire Wire Line
 	3600 4300 3950 4300
-Wire Wire Line
-	3950 4300 3950 4900
 $Comp
 L power:GND #PWR02
 U 1 1 6156F570
-P 3950 4900
-F 0 "#PWR02" H 3950 4650 50  0001 C CNN
-F 1 "GND" H 3955 4727 50  0000 C CNN
-F 2 "" H 3950 4900 50  0001 C CNN
-F 3 "" H 3950 4900 50  0001 C CNN
-	1    3950 4900
+P 3950 5050
+F 0 "#PWR02" H 3950 4800 50  0001 C CNN
+F 1 "GND" H 3955 4877 50  0000 C CNN
+F 2 "" H 3950 5050 50  0001 C CNN
+F 3 "" H 3950 5050 50  0001 C CNN
+	1    3950 5050
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	3600 2350 3950 2350
 Wire Wire Line
 	5550 2350 5550 2750
-Wire Wire Line
-	5550 3950 5550 4900
 $Comp
 L power:GND #PWR03
 U 1 1 6157018C
-P 5550 4900
-F 0 "#PWR03" H 5550 4650 50  0001 C CNN
-F 1 "GND" H 5555 4727 50  0000 C CNN
-F 2 "" H 5550 4900 50  0001 C CNN
-F 3 "" H 5550 4900 50  0001 C CNN
-	1    5550 4900
+P 5550 5050
+F 0 "#PWR03" H 5550 4800 50  0001 C CNN
+F 1 "GND" H 5555 4877 50  0000 C CNN
+F 2 "" H 5550 5050 50  0001 C CNN
+F 3 "" H 5550 5050 50  0001 C CNN
+	1    5550 5050
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -291,11 +287,7 @@ F0 "power" 50
 F1 "power.sch" 50
 $EndSheet
 Wire Wire Line
-	6150 3050 6650 3050
-Wire Wire Line
 	7100 2300 7100 3150
-Wire Wire Line
-	7100 3150 6500 3150
 Wire Wire Line
 	6900 2300 6900 3250
 Wire Wire Line
@@ -320,26 +312,89 @@ Wire Wire Line
 	8200 3450 6150 3450
 Wire Wire Line
 	8200 3450 8200 3900
+Text Notes 8250 3350 0    43   ~ 0
+Might not be possible to have 3 PWM controlled LEDs together with \nserial comms with BLE module\n
+Text Notes 4000 4250 0    43   ~ 0
+custom serial comms using hardware USI\nmight require external crystal for exact timing
+Text Notes 6700 3850 0    43   ~ 0
+RX is operating on 3.3V\nneeds voltage divider!
+Text Notes 650  5600 0    43   ~ 0
+HC-05/06 notes\n\n1. KEY/En \n This pin is used to bring the Bluetooth module in AT commands mode. \n The Key/EN pin should be high to operate Bluetooth in command mode.\n Default baud speed in command mode is 38400bps and 9600 in data mode (default mode).\n2. VCC \n Used to power the Bluetooth module. Give 5V / 3.3 V to this Pin.\n3. GND \n The ground pin of the module\n4. TXD \n Connect this pin with the RXD pin of the Microcontroller.\n5. RXD \n Connect this pin to the TXD pin of the Microcontroller.\n6. STATE \n Used to check if the module is connected or not. It acts as a status indicator.
 Wire Wire Line
-	3600 4400 6500 4400
+	3600 4200 3950 4200
 Wire Wire Line
-	6500 4400 6500 3150
-Connection ~ 6500 3150
+	3950 4200 3950 2350
+$Comp
+L Device:R R5
+U 1 1 61582D36
+P 6650 4550
+F 0 "R5" H 6720 4596 50  0000 L CNN
+F 1 "2K" H 6720 4505 50  0000 L CNN
+F 2 "" V 6580 4550 50  0001 C CNN
+F 3 "~" H 6650 4550 50  0001 C CNN
+	1    6650 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 615843D2
+P 6650 4050
+F 0 "R4" H 6720 4096 50  0000 L CNN
+F 1 "1K" H 6720 4005 50  0000 L CNN
+F 2 "" V 6580 4050 50  0001 C CNN
+F 3 "~" H 6650 4050 50  0001 C CNN
+	1    6650 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR014
+U 1 1 61584968
+P 6650 5050
+F 0 "#PWR014" H 6650 4800 50  0001 C CNN
+F 1 "GND" H 6655 4877 50  0000 C CNN
+F 2 "" H 6650 5050 50  0001 C CNN
+F 3 "" H 6650 5050 50  0001 C CNN
+	1    6650 5050
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	6500 3150 6150 3150
+	3950 4300 3950 5050
 Wire Wire Line
-	3600 4500 6650 4500
+	5550 3950 5550 5050
 Wire Wire Line
-	6650 4500 6650 3050
+	6650 4700 6650 5050
+Wire Wire Line
+	6150 3050 6650 3050
+Wire Wire Line
+	3600 4400 6350 4400
+Wire Wire Line
+	6350 3150 6350 4400
+Connection ~ 6350 3150
+Wire Wire Line
+	6350 3150 6150 3150
+Wire Wire Line
+	6350 3150 7100 3150
+Wire Wire Line
+	3600 4500 6500 4500
+Wire Wire Line
+	6500 4500 6500 4300
+Wire Wire Line
+	6500 4300 6650 4300
+Wire Wire Line
+	6650 4300 6650 4200
+Wire Wire Line
+	6650 4300 6650 4400
+Connection ~ 6650 4300
+Wire Wire Line
+	6650 3900 6650 3050
 Connection ~ 6650 3050
 Wire Wire Line
 	6650 3050 7000 3050
-Text Notes 8250 3350 0    43   ~ 0
-Might not be possible to have 3 PWM controlled LEDs together with \nserial comms with BLE module\n
-Text Notes 3850 4200 0    43   ~ 0
-custom serial comms using hardware USI\nmight require external crystal for exact timing
-Text Notes 4300 4650 0    43   ~ 0
-RX is operating on 3.3V\nneeds voltage divider!
-Text Notes 650  5600 0    43   ~ 0
-HC-05 notes\n\n1. KEY/En \n This pin is used to bring the Bluetooth module in AT commands mode. \n The Key/EN pin should be high to operate Bluetooth in command mode.\n Default baud speed in command mode is 38400bps and 9600 in data mode (default mode).\n2. VCC \n Used to power the Bluetooth module. Give 5V / 3.3 V to this Pin.\n3. GND \n The ground pin of the module\n4. TXD \n Connect this pin with the RXD pin of the Microcontroller.\n5. RXD \n Connect this pin to the TXD pin of the Microcontroller.\n6. STATE \n Used to check if the module is connected or not. It acts as a status indicator.
+Wire Wire Line
+	3600 2450 3850 2450
+Wire Wire Line
+	3850 2450 3850 4100
+Wire Wire Line
+	3850 4100 3600 4100
+Connection ~ 3600 2450
 $EndSCHEMATC
