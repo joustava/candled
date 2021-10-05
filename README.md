@@ -18,7 +18,9 @@
 - [Simple ATtiny USI UART](http://www.technoblogy.com/show?RPY)
 - [Simple Serial Communications With AVR libc](https://appelsiini.net/2011/simple-usart-with-avr-libc/)
 - [Four PWM Outputs from the ATtiny85](http://www.technoblogy.com/show?LE0=)
-
+- [AVR Timer Programming](https://exploreembedded.com/wiki/AVR_Timer_programming)
+- [USI Serial UART Receive on ATtiny](http://becomingmaker.com/usi-serial-uart-attiny85/)
+- [AVR half-duplex software UART supporting single pin operation](http://nerdralph.blogspot.com/2014/01/avr-half-duplex-software-uart.html)
 ## Contributing
 
 ## Authors

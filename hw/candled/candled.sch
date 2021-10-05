@@ -18,7 +18,7 @@ L MCU_Microchip_ATtiny:ATtiny85-20PU U1
 U 1 1 6156161E
 P 5550 3350
 F 0 "U1" H 5021 3396 50  0000 R CNN
-F 1 "ATtiny85-20PU" H 5021 3305 50  0000 R CNN
+F 1 "ATTINY85V-10SUR" H 5021 3305 50  0000 R CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 5550 3350 50  0001 C CIN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf" H 5550 3350 50  0001 C CNN
 	1    5550 3350
@@ -313,11 +313,11 @@ Wire Wire Line
 Wire Wire Line
 	8200 3450 8200 3900
 Text Notes 8250 3350 0    43   ~ 0
-Might not be possible to have 3 PWM controlled LEDs together with \nserial comms with BLE module\n
+Might not be possible to have 3 PWM controlled LEDs together with \nserial comms with BLE module because of needing feature from same PIN?\n
 Text Notes 4000 4250 0    43   ~ 0
 custom serial comms using hardware USI\nmight require external crystal for exact timing
-Text Notes 6700 3850 0    43   ~ 0
-RX is operating on 3.3V\nneeds voltage divider!
+Text Notes 6700 3900 0    43   ~ 0
+RX is operating on 3.3V\nneeds voltage divider!\nMaybe LLC is better choice \nfor higher speeds
 Text Notes 650  5600 0    43   ~ 0
 HC-05/06 notes\n\n1. KEY/En \n This pin is used to bring the Bluetooth module in AT commands mode. \n The Key/EN pin should be high to operate Bluetooth in command mode.\n Default baud speed in command mode is 38400bps and 9600 in data mode (default mode).\n2. VCC \n Used to power the Bluetooth module. Give 5V / 3.3 V to this Pin.\n3. GND \n The ground pin of the module\n4. TXD \n Connect this pin with the RXD pin of the Microcontroller.\n5. RXD \n Connect this pin to the TXD pin of the Microcontroller.\n6. STATE \n Used to check if the module is connected or not. It acts as a status indicator.
 Wire Wire Line
@@ -397,4 +397,65 @@ Wire Wire Line
 Wire Wire Line
 	3850 4100 3600 4100
 Connection ~ 3600 2450
+$Comp
+L Device:D D?
+U 1 1 616C288A
+P 1450 1550
+F 0 "D?" H 1450 1333 50  0000 C CNN
+F 1 "D" H 1450 1424 50  0000 C CNN
+F 2 "" H 1450 1550 50  0001 C CNN
+F 3 "~" H 1450 1550 50  0001 C CNN
+	1    1450 1550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 616C3591
+P 1800 1800
+F 0 "R?" H 1859 1846 50  0000 L CNN
+F 1 "10K" H 1859 1755 50  0000 L CNN
+F 2 "" H 1800 1800 50  0001 C CNN
+F 3 "~" H 1800 1800 50  0001 C CNN
+	1    1800 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:2N2219 Q?
+U 1 1 616C5D37
+P 1800 2250
+F 0 "Q?" V 2035 2250 50  0000 C CNN
+F 1 "2N2219" V 2126 2250 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-39-3" H 2000 2175 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/2N2219-D.PDF" H 1800 2250 50  0001 L CNN
+	1    1800 2250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1300 1550 1200 1550
+Wire Wire Line
+	1600 2350 1200 2350
+Wire Wire Line
+	1200 2350 1200 1550
+Connection ~ 1200 1550
+Wire Wire Line
+	1200 1550 900  1550
+Wire Wire Line
+	1600 1550 1800 1550
+Wire Wire Line
+	1800 1700 1800 1550
+Connection ~ 1800 1550
+Wire Wire Line
+	1800 1550 2300 1550
+Wire Wire Line
+	1800 1900 1800 2050
+Wire Wire Line
+	2000 2350 2300 2350
+Text Label 900  1550 2    50   ~ 0
+TX-RX
+Text Label 2300 1550 0    50   ~ 0
+TX
+Text Label 2300 2350 0    50   ~ 0
+RX
+Text Notes 700  1250 0    50   ~ 0
+AVR half-duplex software UART supporting single pin operation\nSee: https://nerdralph.blogspot.com/2014/01/avr-half-duplex-software-uart.html for details.\n\nDesigned to work together with picoUART library.\nChange the TX/RX Pin designator in pu_config.h.
 $EndSCHEMATC
