@@ -9,6 +9,8 @@
 
 ## Software
 
+UART communication to the BLE module is done with the [picoUART library](https://github.com/nerdralph/picoUART) on PB3 and baud rate 9600 (default HM-10).
+
 ## Hardware
 
 ## Extra
@@ -21,6 +23,7 @@
 - [AVR Timer Programming](https://exploreembedded.com/wiki/AVR_Timer_programming)
 - [USI Serial UART Receive on ATtiny](http://becomingmaker.com/usi-serial-uart-attiny85/)
 - [AVR half-duplex software UART supporting single pin operation](http://nerdralph.blogspot.com/2014/01/avr-half-duplex-software-uart.html)
+- [](https://nerdralph.blogspot.com/2020/02/building-better-bit-bang-uart-picouart.html)
 ## Contributing
 
 ## Authors
@@ -28,7 +31,7 @@
 
 ## TODO
 
-- [ ] Check howto do basic HC-05 controlled LED.
+- [ ] Check howto do basic HM-10 controlled LED.
 - [ ] Check ISP wiring, does it need protective/isolating R's?
 - [ ] Control Hub based on Nerves for multiple lamps/single control point.
 

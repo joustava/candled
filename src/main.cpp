@@ -1,3 +1,7 @@
+// picoUART configuration is set to 1-wire (shared Rx/Tx) operation on PB3.
+#include <picoUART.h>
+#include <pu_print.h>
+
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdlib.h>
@@ -60,13 +64,18 @@ void configureTimers() {
 int main(void) {
   configureOutput();
   configureTimers();
+  uint8_t c;
 
   while(1) {
     // TODO: check if this could be moved to interrupt.
-    _delay_ms(95);
+    // c = purx();
+    _delay_ms(98);
     OCR0A = randomInt(); // duty cycle on OC0A (PB0)
     OCR0B = randomInt(); // duty cycle on OC0B (PB1)
     OCR1B = randomInt(); // duty cycle on OC1B (PB4)
+
+    // putx(c + 1);
+
   }
 
   return (0);

@@ -397,4 +397,65 @@ Wire Wire Line
 Wire Wire Line
 	3850 4100 3600 4100
 Connection ~ 3600 2450
+$Comp
+L Device:D D?
+U 1 1 616C288A
+P 1450 1550
+F 0 "D?" H 1450 1333 50  0000 C CNN
+F 1 "D" H 1450 1424 50  0000 C CNN
+F 2 "" H 1450 1550 50  0001 C CNN
+F 3 "~" H 1450 1550 50  0001 C CNN
+	1    1450 1550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 616C3591
+P 1800 1800
+F 0 "R?" H 1859 1846 50  0000 L CNN
+F 1 "10K" H 1859 1755 50  0000 L CNN
+F 2 "" H 1800 1800 50  0001 C CNN
+F 3 "~" H 1800 1800 50  0001 C CNN
+	1    1800 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:2N2219 Q?
+U 1 1 616C5D37
+P 1800 2250
+F 0 "Q?" V 2035 2250 50  0000 C CNN
+F 1 "2N2219" V 2126 2250 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-39-3" H 2000 2175 50  0001 L CIN
+F 3 "http://www.onsemi.com/pub_link/Collateral/2N2219-D.PDF" H 1800 2250 50  0001 L CNN
+	1    1800 2250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1300 1550 1200 1550
+Wire Wire Line
+	1600 2350 1200 2350
+Wire Wire Line
+	1200 2350 1200 1550
+Connection ~ 1200 1550
+Wire Wire Line
+	1200 1550 900  1550
+Wire Wire Line
+	1600 1550 1800 1550
+Wire Wire Line
+	1800 1700 1800 1550
+Connection ~ 1800 1550
+Wire Wire Line
+	1800 1550 2300 1550
+Wire Wire Line
+	1800 1900 1800 2050
+Wire Wire Line
+	2000 2350 2300 2350
+Text Label 900  1550 2    50   ~ 0
+TX-RX
+Text Label 2300 1550 0    50   ~ 0
+TX
+Text Label 2300 2350 0    50   ~ 0
+RX
+Text Notes 700  1250 0    50   ~ 0
+AVR half-duplex software UART supporting single pin operation\nSee: https://nerdralph.blogspot.com/2014/01/avr-half-duplex-software-uart.html for details.\n\nDesigned to work together with picoUART library.\nChange the TX/RX Pin designator in pu_config.h.
 $EndSCHEMATC
