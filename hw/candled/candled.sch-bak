@@ -458,4 +458,8 @@ Text Label 2300 2350 0    50   ~ 0
 RX
 Text Notes 700  1250 0    50   ~ 0
 AVR half-duplex software UART supporting single pin operation\nSee: https://nerdralph.blogspot.com/2014/01/avr-half-duplex-software-uart.html for details.\n\nDesigned to work together with picoUART library.\nChange the TX/RX Pin designator in pu_config.h.
+Text Notes 700  1950 0    50   ~ 0
+micro
+Text Notes 2400 1950 0    50   ~ 0
+hm-xx
 $EndSCHEMATC

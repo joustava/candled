@@ -424,7 +424,7 @@ L Transistor_BJT:2N2219 Q?
 U 1 1 616C5D37
 P 1800 2250
 F 0 "Q?" V 2035 2250 50  0000 C CNN
-F 1 "2N2219" V 2126 2250 50  0000 C CNN
+F 1 "BC547" V 2126 2250 50  0000 C CNN
 F 2 "Package_TO_SOT_THT:TO-39-3" H 2000 2175 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/2N2219-D.PDF" H 1800 2250 50  0001 L CNN
 	1    1800 2250
@@ -450,16 +450,16 @@ Wire Wire Line
 	1800 1900 1800 2050
 Wire Wire Line
 	2000 2350 2300 2350
-Text Label 900  1550 2    50   ~ 0
-TX-RX
 Text Label 2300 1550 0    50   ~ 0
 TX
 Text Label 2300 2350 0    50   ~ 0
 RX
 Text Notes 700  1250 0    50   ~ 0
-AVR half-duplex software UART supporting single pin operation\nSee: https://nerdralph.blogspot.com/2014/01/avr-half-duplex-software-uart.html for details.\n\nDesigned to work together with picoUART library.\nChange the TX/RX Pin designator in pu_config.h.
+AVR half-duplex software UART supporting single pin operation\nSee: https://nerdralph.blogspot.com/2014/01/avr-half-duplex-software-uart.html for details.\n\nDesigned to work together with picoUART library.\nChange the TX/RX Pin designator (PB3) in pu_config.h.\n
 Text Notes 700  1950 0    50   ~ 0
 micro
 Text Notes 2400 1950 0    50   ~ 0
-hm-xx
+HM-10
+Text Label 900  1550 2    50   ~ 0
+PB3
 $EndSCHEMATC

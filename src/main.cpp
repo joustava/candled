@@ -32,7 +32,7 @@ uint8_t randomInt(void);
  * @return uint8_t
  */
 uint8_t randomInt() {
-  return rand();
+  return rand() % 250;
 }
 
 /**
@@ -69,7 +69,7 @@ int main(void) {
   while(1) {
     // TODO: check if this could be moved to interrupt.
     // c = purx();
-    _delay_ms(98);
+    _delay_ms(95);
     OCR0A = randomInt(); // duty cycle on OC0A (PB0)
     OCR0B = randomInt(); // duty cycle on OC0B (PB1)
     OCR1B = randomInt(); // duty cycle on OC1B (PB4)

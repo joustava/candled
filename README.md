@@ -5,7 +5,12 @@
 
 ## Quick start
 
-(firmware bundle)
+Make sure you have a hardware setup to flash an ATtiny85. This repo uses PlatformIO for tooling, you might be able to
+change the target env config to match. Then run
+
+$ platformio run -t upload -vvv
+
+
 
 ## Software
 
